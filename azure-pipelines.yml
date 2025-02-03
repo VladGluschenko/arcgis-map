@@ -15,9 +15,3 @@ steps:
   inputs:
     packageType: 'sdk'
     version: 9.x
-- task: Bash@3
-  displayName: install MAUI workloads
-  inputs:
-    targetType: 'inline'
-    script: |
-      dotnet nuget locals all --clear
