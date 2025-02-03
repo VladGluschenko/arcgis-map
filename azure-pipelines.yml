@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: UseDotNet@2
+  displayName: Set .Net version
+  inputs:
+    packageType: 'sdk'
+    version: 9.x
+- task: Bash@3
+  displayName: install MAUI workloads
+  inputs:
+    targetType: 'inline'
+    script: |
+      dotnet nuget locals all --clear
